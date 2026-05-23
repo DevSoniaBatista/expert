@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 
 type SlideLink = { label: string; url: string } | { separator: true };
 type SlideFlow = { steps: string[]; highlight?: { text: string; tone: 'warn' | 'info' | 'good' } };
-type SlideInfoItem = { icon: string; title: string; description: string };
+type SlideInfoItem = { icon: string; title: string; description: ReactNode; span?: 6 | 12 };
 type SlideInfo = { label?: string; items: SlideInfoItem[]; links?: SlideLink[]; highlight?: { text: string; tone: 'warn' | 'info' | 'good' } };
 type SlideQr = { label?: string; url: string };
 type SlideImage = { src: string; alt?: string; style?: CSSProperties };
@@ -65,7 +65,10 @@ const slides: Slide[] = [
   },
   {
     "title": "Blockchain = Livro-Razão 📒",
-    "image": { "src": "/images/livro-razao.png", "alt": "Blockchain como livro-razão (ledger)" }
+    "image": { "src": "/images/livro-razao.png", "alt": "Blockchain como livro-razão (ledger)" },
+    "links": [
+      { "label": "Demo interativa", "url": "https://andersbrownworth.com/blockchain/tokens" }
+    ]
   },
   {
     "title": "Smart Contracts",
@@ -76,17 +79,31 @@ const slides: Slide[] = [
     "image": { "src": "/images/padroes-erc.png", "alt": "Padrões ERC", "style": { "width": "82%", "maxWidth": 940 } }
   },
   {
-    "title": "Seed Phrase — A Chave do Seu Reino",
-    "subtitle": "NUNCA compartilhe com ninguém — nem suporte técnico, nem amigos, nem nesta aula. Ninguém legítimo pedirá isso.",
+    "title": "Segurança — Seed Phrase & Scams de Recrutadores",
+    "subtitle": "Proteja sua carteira: seed phrase é sagrada e recrutador legítimo não pede \"conectar carteira\".",
     "info": {
       "label": "SEGURANÇA",
       "items": [
-        { "icon": "📝", "title": "Guarde offline", "description": "Anote em papel e guarde fisicamente — nunca tire foto, salve no celular, e-mail, nuvem ou mensagem." },
+        {
+          "icon": "📝",
+          "title": "Guarde offline",
+          "description": (
+            <>
+              Anote em papel e guarde fisicamente
+              <br />
+              <span style={{ color: '#ef4444', fontWeight: 900 }}>✗</span> nunca tire foto, salve no celular, e-mail, nuvem ou mensagem.
+            </>
+          ),
+        },
         { "icon": "🧠", "title": "Acesso total", "description": "Quem tem a seed phrase tem acesso total — é como ter a chave master do seu banco, sem possibilidade de bloqueio." },
-        { "icon": "🧨", "title": "Sem recuperação", "description": "Se perder, perdeu o acesso para sempre — não há \"esqueci minha senha\", não há suporte. A blockchain é implacável." },
-        { "icon": "✅", "title": "Atividade", "description": "Agora é sua vez!" }
+        {
+          "icon": "⚠️",
+          "title": "Cuidados com recrutadores no LinkedIn/Discord/Telegram",
+          "span": 12,
+          "description": "• Links suspeitos e pedidos de \"conectar carteira\" para entrevistas.\n• Cuidado com pedidos para baixar/executar repositórios, scripts ou arquivos \"para rodar local\" — isso pode instalar malware e roubar sua seed/private key.\n• Verifique: empresa real, LinkedIn do recrutador e site oficial.\n• Recrutadores legítimos: NÃO pedem acesso à sua carteira.\n• Red flags: urgência, ofertas \"muito boas\", pedidos de depósito."
+        }
       ],
-      "highlight": { "text": "Ninguém legítimo pede seed phrase. Se pediu, é golpe.", "tone": "warn" }
+      "highlight": { "text": "Se pediram seed phrase, chave privada, senha, ou para \"conectar carteira\" — é golpe.", "tone": "warn" }
     }
   },
   {
@@ -251,7 +268,7 @@ const slides: Slide[] = [
     ]
   },
   {
-    "title": "Apresentação (Vercel)",
+    "title": "Apresentação",
     "subtitle": "Link para abrir no celular",
     "qr": { "label": "Abrir apresentação", "url": "https://expert-eight.vercel.app/" },
     "links": [
@@ -447,7 +464,7 @@ export default function Page() {
     },
     infoIcon: { fontSize: 20, lineHeight: 1, marginBottom: 10 },
     infoTitle: { margin: 0, fontSize: 13, fontWeight: 700 },
-    infoDesc: { marginTop: 6, fontSize: 12, opacity: 0.86, lineHeight: 1.5 },
+    infoDesc: { marginTop: 6, fontSize: 12, opacity: 0.86, lineHeight: 1.5, whiteSpace: 'pre-line' },
     highlight: {
       padding: 14,
       borderRadius: 14,
@@ -644,7 +661,7 @@ export default function Page() {
                       key={i}
                       style={{
                         ...styles.infoItem,
-                        gridColumn: total >= 1 ? 'span 6' : 'span 12',
+                        gridColumn: it.span === 12 ? 'span 12' : 'span 6',
                       }}
                     >
                       <div style={styles.infoIcon}>{it.icon}</div>
