@@ -1,0 +1,5 @@
+:root { color-scheme: dark; }
+
+html, body { margin: 0; padding: 0; }
+body { background: #05060c; color: #eaf2ff; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+* { box-sizing: border-box; }

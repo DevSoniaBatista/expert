@@ -1,0 +1,204 @@
+Estrutura dos 90 minutos (compactado em 1 workshop)
+
+Só pra você ter claro como isso flui bonito:
+
+✅ Bloco 1 — Onboarding Web3 (30 min)
+
+O que é uma wallet
+
+Criar MetaMask do zero
+
+Seed phrase, segurança
+
+Conectar à testnet
+
+Receber faucet
+
+Aqui você elimina 100% da fricção técnica
+
+✅ Bloco 2 — Solidity + NFT real (60 min)
+
+O problema: certificados e ingressos falsificáveis
+
+Criar o Smart Contract de NFT de Certificação
+
+Deploy
+
+Mint do NFT
+
+Mostrar na wallet / OpenSea testnet
+
+✅ Finaliza com todo mundo segurando um NFT que prova que participou.
+
+
+====================================
+
+
+ROTEIRO DE FALA — WORKSHOP COMPLETO
+✅ Abertura (5 min)
+
+"Hoje vocês não vão só aprender o que é blockchain.
+Vocês vão sair daqui com uma wallet criada, um NFT na blockchain e um Smart Contract publicado."
+
+Explique:
+
+Blockchain não é cripto, é infraestrutura
+Smart Contract = código que vira regra
+NFT = identidade digital, não só arte
+
+Frase forte:
+
+"Hoje vocês vão escrever código que não roda no meu computador — ele roda no mundo."
+
+✅ Parte 1 — Criando a carteira MetaMask (25 min)
+O que você fala:
+
+"Antes de criar um contrato, você precisa existir na blockchain.
+Essa existência é a sua wallet."
+
+Explique:
+
+Wallet ≠ dinheiro
+Wallet = identidade + assinatura
+Seed phrase = chave da sua vida digital
+
+Guie ao vivo:
+
+Instalar MetaMask
+Criar carteira
+Salvar seed phrase
+Conectar à testnet
+Receber faucet
+
+Frase impacto:
+
+"Se você perder essa seed phrase, ninguém no planeta pode te ajudar. Nem eu."
+
+✅ Parte 2 — O problema real (5 min)
+
+"PDFs são falsificáveis.
+Certificados são copiáveis.
+Ingressos são fraudados."
+
+Mostre:
+
+NFTs usados como:
+
+Certificados
+Ingressos
+Acesso a comunidades
+
+"A gente vai construir exatamente esse tipo de sistema."
+
+✅ Parte 3 — O Smart Contract (25 min)
+
+Explique:
+
+"Smart Contract é um backend que não tem servidor."
+
+Abra o Remix.
+
+Explique por cima:
+
+Solidity
+ERC-721
+OpenZeppelin
+
+Depois entra no código do NFT de certificado.
+
+Foque em:
+
+Nome do token
+Símbolo
+Limitar 1 NFT por pessoa
+Função mint
+
+"Isso aqui é um sistema de emissão de certificados, não um exemplo didático."
+
+✅ Parte 4 — Deploy (15 min)
+
+"Agora a gente vai publicar esse sistema no mundo."
+
+Passos:
+
+Conectar MetaMask
+Deploy
+Confirmar transação
+
+Frase impacto:
+
+"Esse contrato agora não pode mais ser apagado."
+
+✅ Parte 5 — Mint do NFT (10 min)
+
+Todo mundo chama mintCertificate().
+
+"Agora vocês estão recebendo um ativo digital que prova que vocês estiveram aqui."
+
+Mostre:
+
+Token na wallet
+Se possível, OpenSea testnet
+
+✅ Encerramento (10 min)
+
+"Hoje vocês não aprenderam blockchain.
+Vocês usaram blockchain."
+
+Explique próximos passos:
+
+Frontend
+IPFS
+Metadata
+Token gated apps
+
+✅ CONTEÚDO DA AULA (Slides / Tela)
+Slide 1 — O que vamos criar
+
+NFT de Certificado de Participação
+Não falsificável
+Na blockchain
+Na sua wallet
+
+Slide 2 — O que é uma wallet
+
+Wallet = identidade
+Blockchain = sistema de registros
+NFT = prova digital
+
+Slide 3 — Arquitetura
+Wallet → Smart Contract → Blockchain → NFT
+
+Slide 4 — O que é um Smart Contract
+
+Código
+Imutável
+Sem servidor
+Sem administrador
+
+Slide 5 — O que é um NFT
+
+ERC-721
+Token único
+Prova de propriedade
+
+Slide 6 — Nosso contrato faz
+
+Criar NFTs
+Limitar 1 por pessoa
+Guardar quem já recebeu
+
+Slide 7 — Fluxo real
+
+Wallet criada
+Contrato publicado
+NFT mintado
+NFT aparece na wallet
+
+Slide 8 — Isso já é um produto
+
+Pode virar:
+
+Certificado
+Ingresso
+Acesso VIP

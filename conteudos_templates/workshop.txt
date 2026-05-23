@@ -1,0 +1,204 @@
+Vou te propor um workshop sem HelloWorld, usando um NFT de Certificado/Ingresso Digital (Proof of Participation). É real, todo mundo entende, e não explode a cabeça de quem é iniciante.
+
+🎯 Título do Workshop
+
+“Criando um NFT Real em 45 Minutos: Certificado Digital com Solidity e Blockchain”
+
+(soa profissional, prático e aplicável no mundo real)
+
+🧠 Descrição do Workshop
+
+Neste workshop prático, você vai criar um Smart Contract real em Solidity, usado para emitir NFTs de certificado/participação, exatamente como eventos, cursos e comunidades Web3 fazem hoje.
+
+Sem exemplos artificiais. Sem Hello World.
+Você vai escrever, fazer deploy e mintar um NFT funcional, entendendo como esse tipo de contrato é usado no mercado.
+
+Em apenas 45 minutos, você vai sair sabendo:
+
+Como funciona um Smart Contract na prática
+
+Como NFTs são usados como certificados e ingressos digitais
+
+Como criar, publicar e testar seu próprio contrato na blockchain
+
+⏱️ Cronograma do Workshop (45 minutos)
+1️⃣ Abertura — O problema real (5 min)
+
+Objetivo: mostrar valor antes de código
+
+Comece com o contexto:
+
+“Hoje, certificados podem ser falsificados. Ingressos são copiados. Diplomas são PDFs.”
+
+Explique:
+
+Como Blockchain resolve isso
+
+Por que NFTs são usados como:
+
+Certificados
+
+Ingressos
+
+Acesso a comunidades
+
+Benefícios exclusivos
+
+📌 Mostre exemplos reais (OpenSea / POAP / eventos Web3)
+
+2️⃣ O caso real que vamos construir (3 min)
+
+Objetivo: clareza total
+
+Explique o projeto do workshop:
+
+👉 NFT de Certificado de Participação
+
+Cada participante pode mintar apenas 1 NFT
+
+NFT fica na wallet como prova permanente
+
+Pode ser usado futuramente para:
+
+Acesso a conteúdos
+
+Benefícios
+
+Comunidade
+
+Nada de complexo, mas 100% real.
+
+3️⃣ Ferramentas (3 min)
+
+Objetivo: reduzir fricção
+
+Remix Ethereum
+
+MetaMask
+
+Testnet (Sepolia)
+
+Diga explicitamente:
+
+“Isso aqui é exatamente o que usamos em projetos reais, só numa versão simplificada.”
+
+4️⃣ Criando o Smart Contract do Certificado (12 min)
+
+Objetivo: código real, mas digerível
+
+Estrutura do contrato (ERC-721 simplificado)
+
+Conceitos reais incluídos:
+
+Uso de padrão OpenZeppelin
+
+Controle para evitar múltiplos mints
+
+Nome e símbolo reais
+
+Contador de tokens
+
+Exemplo de contrato (core do workshop)
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract WorkshopCertificate is ERC721, Ownable {
+    uint256 public tokenIdCounter;
+    mapping(address => bool) public hasMinted;
+
+    constructor() ERC721("Workshop Solidity Certificate", "WSC") {}
+
+    function mintCertificate() external {
+        require(!hasMinted[msg.sender], "Certificate already minted");
+
+        uint256 tokenId = tokenIdCounter;
+        tokenIdCounter++;
+
+        hasMinted[msg.sender] = true;
+        _safeMint(msg.sender, tokenId);
+    }
+}
+
+Explique apenas o essencial:
+
+Por que usar mapping
+
+Por que limitar 1 NFT por wallet
+
+Por que Ownable (gancho pra evoluir depois)
+
+5️⃣ Deploy + Mint do NFT (10 min)
+
+Objetivo: momento “isso é real”
+
+Compile no Remix
+
+Deploy na testnet
+
+Conecte MetaMask
+
+Cada participante chama mintCertificate()
+
+💥 Momento impacto real:
+
+“Esse NFT é um certificado que ninguém pode apagar ou falsificar.”
+
+Se der tempo:
+
+Mostrar no OpenSea Testnet
+
+Mostrar o token na wallet
+
+6️⃣ O que torna isso um projeto REAL (7 min)
+
+Objetivo: fechar com visão de mercado
+
+Explique como esse contrato poderia evoluir:
+
+Metadata com nome do aluno
+
+Data do evento
+
+IPFS
+
+Integração com front-end
+
+Uso como chave de acesso (token-gated)
+
+Mostre:
+
+“Isso aqui já é um produto mínimo viável.”
+
+🚀 Como deixar o workshop memorável
+🎯 Estratégias-chave
+
+Não escreva tudo do zero: explique por que usar padrões
+
+Nome do NFT com o nome do evento/turma
+
+Diga claramente:
+
+“Vocês estão criando algo que empresas realmente usam.”
+
+🔥 Extra (se quiser elevar ainda mais)
+
+Mint coletivo no final
+
+Screenshot da galera com NFT na wallet
+
+QR Code com link do contrato
+
+🧠 Por que esse formato funciona
+
+❌ Não é didático demais
+
+❌ Não é complexo demais
+
+✅ Resolve um problema real
+
+✅ Código reaproveitável
+
+✅ Mostra mercado, não só tecnologia
