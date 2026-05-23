@@ -253,9 +253,9 @@ const slides: Slide[] = [
   {
     "title": "Apresentação (Vercel)",
     "subtitle": "Link para abrir no celular",
-    "qr": { "label": "Abrir apresentação", "url": "__PRESENTATION_URL__" },
+    "qr": { "label": "Abrir apresentação", "url": "https://expert-eight.vercel.app/" },
     "links": [
-      { "label": "Abrir apresentação", "url": "__PRESENTATION_URL__" }
+      { "label": "Abrir apresentação", "url": "https://expert-eight.vercel.app/" }
     ],
     "bullets": [
       "Escaneie o QR code ou abra o link para acompanhar os slides."
